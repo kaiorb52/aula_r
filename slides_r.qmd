@@ -1,0 +1,160 @@
+---
+title: "R & Rstudio Apresentação"
+format: revealjs
+editor: visual
+embed-resources: true
+---
+
+```{r}
+
+library(tidyverse)
+
+library(data.table)
+```
+
+## SLIDE 1
+
+```{r}
+#| echo: TRUE
+#| warning: TRUE
+
+1 + 1
+
+1 - 1 
+
+1 / 1
+
+1 * 1
+```
+
+## SLIDE 2
+
+```{r}
+#| echo: TRUE
+#| warning: TRUE
+
+x <- 1
+
+y <- 1 
+
+x + y
+```
+
+## SLIDE 3
+
+```{r}
+#| echo: TRUE
+#| warning: TRUE
+
+idades <- c(27, 24, 20, 20, 21, 33, 22, 23, 24)
+
+print(idades)
+
+mean(idades)
+median(idades)
+sd(idades)
+```
+
+## Importação: Metodo 1
+
+```{r}
+#| echo: TRUE
+#| warning: FALSE
+
+Milicias <- read_csv2("https://www.ispdados.rj.gov.br/Arquivos/BaseDPEvolucaoMensalCisp.csv")
+
+Milicias <- fread("BaseDPEvolucaoMensalCisp.csv", encoding = "Latin-1")
+
+str(Milicias)
+
+```
+
+## Importação: Metodo 2
+
+```{r}
+#| echo: TRUE
+#| warning: FALSE
+
+url <- "https://www.ispdados.rj.gov.br/Arquivos/BaseDPEvolucaoMensalCisp.csv"
+
+Milicias <- read_csv2(url)
+
+Milicias <- read_delim(url, delim = ";", quote = '"', col_names = T,  
+           na = "", locale = locale(decimal_mark = ".",
+                                    encoding = "windows-1252"))
+
+head(Milicias)
+
+```
+
+## FUNÇÕES UTEIS 1
+
+```{r}
+#| echo: TRUE
+#| warning: FALSE
+
+head(Milicias$munic)
+
+mean(Milicias$roubo_celular)
+
+median(Milicias$roubo_celular)
+
+```
+
+## FUNÇÕES UTEIS 2
+
+```{r}
+#| echo: TRUE
+#| warning: FALSE
+
+table(Milicias$munic)
+```
+
+## FUNÇÕES UTEIS 3
+
+```{r}
+#| echo: TRUE
+#| warning: FALSE
+
+table(Milicias$munic, Milicias$ano)
+
+```
+
+## FUNÇÕES UTEIS 4
+
+```{r}
+#| echo: TRUE
+#| warning: FALSE
+
+Milicias_campos <- Milicias %>%
+  filter(munic == "Campos dos Goytacazes")
+
+head(Milicias_campos)
+```
+
+## Graficos
+
+```{r}
+#| echo: TRUE
+#| warning: FALSE
+
+ggplot(Milicias_campos, aes(x=ano, y=roubo_celular))+
+  geom_point()+
+  geom_line()
+
+```
+
+## Graficos & dplyr
+
+```{r}
+
+Milicias_campos_2 <- Milicias_campos %>%
+  group_by(ano) %>%
+  summarise(`Contagem de casos ano` = n(),
+            Soma_roubos_celular = sum(roubo_celular))
+
+ggplot(Milicias_campos_2, aes(x=ano, y=Soma_roubos_celular))+
+  geom_point()+
+  geom_line()
+
+```

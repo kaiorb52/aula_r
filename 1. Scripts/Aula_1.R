@@ -1,19 +1,19 @@
-library(tidyverse)
-library(janitor)
 
+install.packages("tidyverse")
 install.packages("pacman")
 
+library(tidyverse)
 library(pacman)
+
 p_load(tidyverse)
 
-lista <-list(alunos,
-             c(1:10),
-             letters)
-
-str(lista)
-x <-
-
 #Aula 01: Introdução ao R ----
+
+#lista <-list(alunos,
+#             c(1:10),
+#             letters)
+#str(lista)
+
 #Logical
 T
 F
@@ -43,6 +43,7 @@ as.character(1)
 hila <- 82
 valmir<- 89
 hila+valmir
+
 class(hila)
 typeof(hila)
 
@@ -62,7 +63,6 @@ c(T,F,F,T,1,2,4)
 matrix(c(2,2,2,2), ncol=2)
 
 
-
 #array----
 #n-dimensional
 #todos valores do mesmo tipo
@@ -70,15 +70,13 @@ x <- array (c(2,2,2,2,2,2,2,2,2), dim = 2)
 ##  data.frame----
 #bidimensional
 #colunas de diferentes tipos
-alunos <- data.frame
-nomes = nomes,
-idade=idade,
-matriculados = matriculados,
-data.frame(nomes = nomes <- c ("Luciano", "Raphael", "Caio", 'Davi', 'Bruna', 'Suzamar', "Heitor", "Arthur", "Jaiany"), 
-           idades <- c(27, 24, 20, 20, 21, 33, 22, 23, 24),
-           origem <- ("campos", "rio de janeiro", "campos", " são gonçalo", "campos", "trajano de moares", "cambuci", "Itaocara", "araruama"), stringsAsfac
-           
-           
+
+df <- data.frame(nomes = c("Luciano", "Raphael", "Caio", 'Davi', 'Bruna', 'Suzamar', "Heitor", "Arthur", "Jaiany"), 
+           idades = c(27, 24, 20, 20, 21, 33, 22, 23, 24),
+           origem = c("campos", "rio de janeiro", "campos", "são gonçalo", "campos", "trajano de moares", "cambuci", "Itaocara", "araruama")
+)
+
+
            
 ##listas-----
 lista <- list(
@@ -92,10 +90,9 @@ lista <- list(
 
 
 ##factor----
-factor('M', "F", "M" , "F" , "F"),
-levels= C("M", "F"),
+factor('M', "F", "M" , "F" , "F")
+levels= C("M", "F")
 labels= c("Masculino", "Feminino")
-
 
 
 
@@ -164,7 +161,4 @@ crimtab
 head(crimtab)
 
 
-install.packages("tidyverse")
-install.packages("janitor")
-library(tidyverse)
-library(janitor)
+
