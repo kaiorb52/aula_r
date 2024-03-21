@@ -82,6 +82,7 @@ isp |> select(everything())
 isp |> select(last_col())
 
 #11) where
+isp |> select(where(is.character)) |> glimpse()
 
 #filter ----
 
