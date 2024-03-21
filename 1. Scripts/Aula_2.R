@@ -55,10 +55,9 @@ isp |> select( cisp, mes, ano, ends_with ("transeunte")) |> glimpse()
 
 #4 contains
 
-
 #5 matches 
 
-#6num_range
+#6 num_range
 
 #7 all_of
 
