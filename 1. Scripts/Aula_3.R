@@ -101,6 +101,16 @@ isp %>% filter(regiao == "Capital" |
   regiao == "Grande Niterói" |
     regiao == "Baixada Fluminense" ) -> isp2
     
-isp %>% filter(regiao %in% c("Capital", "Grande Niterói", "Baixada Fluminense")) -> isp2
+isp %>% filter(regiao %in% c("Capital", "Grande Niterói", "Baixada Fluminense")) -> isp_rmrj
 
-isp2
+dim(isp_rmrj)
+
+#casos do rmrj na pandemia (2020, 2021, 2022)
+
+isp_rmrj %>% filter(regiao %in% c("Capital", "Grande Niterói", "Baixada Fluminense") & 
+                 ano %in% c(2020, 2021, 2022)) -> isp_rmrj_pandemia
+
+dim(isp_rmrj)
+unique(isp_rmrj$ano)
+unique(isp_rmrj$regiao)
+
