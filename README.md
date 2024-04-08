@@ -28,3 +28,10 @@ Este repositório contém os materiais e recursos para a disciplina "Introduçã
   - tidyverse <https://cran.r-project.org/web/packages/tidyverse/index.html>
   - dplyr <https://cran.r-project.org/web/packages/dplyr/index.html>
 
+- [Aula 4](https://github.com/kaiorb52/aula_r/blob/main/1.%20Scripts/Aula_4.R)
+
+   Base de dados - [Estatísticas de segurança: série histórica mensal por área de delegacia desde 01/2003 (Isp)](https://www.ispdados.rj.gov.br/estatistica.html#:~:text=Estat%C3%ADsticas%20de%20seguran%C3%A7a%3A%20s%C3%A9rie%20hist%C3%B3rica%20mensal%20por%20%C3%A1rea%20de%20delegacia%20desde%2001/2003)
+
+  Bibliotecas utilizadas:
+  - tidyverse <https://cran.r-project.org/web/packages/tidyverse/index.html>
+

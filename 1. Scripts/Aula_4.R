@@ -71,12 +71,10 @@ crimes <- isp_dp_nomes |>
   )
 
 crimes_pop_ano <- left_join(crimes, pop_ano) |>
-  mutate(perct_ltd_violenta = (sum_ltd_violenta/sum_pop)*100000,
-         perct_autos_resis = (sum_autos_resis/sum_pop)*100000,
-         perct_hom_doloso = (sum_hom_doloso/sum_pop)*100000,
-         perct_interv_pm = (sum_hom_interv_pm/sum_pop)*100000,
+  mutate(perct_ltd_violenta_100k = (sum_ltd_violenta/sum_pop)*100000,
+         perct_autos_resis_100k = (sum_autos_resis/sum_pop)*100000,
+         perct_hom_doloso_100k = (sum_hom_doloso/sum_pop)*100000,
+         perct_interv_pm_100k = (sum_hom_interv_pm/sum_pop)*100000,
          ind_violencia_pm = (sum_hom_interv_pm/sum_ltd_violenta),
   ) |>
-  mutate(ind_violencia_pm_100000 = (ind_violencia_pm/sum_pop)*100000)
-
-  
+  mutate(ind_violencia_pm_100k = (ind_violencia_pm/sum_pop)*100000)
