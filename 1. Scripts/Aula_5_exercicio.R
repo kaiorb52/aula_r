@@ -53,7 +53,7 @@ select_crimes <- function(df, pop_df, group, a, b){
 todos_crimes_fun <- 
   select_crimes(df = isp_nomes, pop_df = pop_ano, ano, hom_doloso, registro_ocorrencias)
 
-taxa_longer <- todos_crimmes_fun %>%
+taxa_longer <- todos_crimes_fun %>%
   pivot_longer(
     cols = hom_doloso:taxa_registro_ocorrencias, 
     names_to = "Crimes", 
@@ -72,5 +72,10 @@ taxa_longer %>%
   ggplot(aes(x=ano, y=N, color=Crimes)) +
   geom_point()+
   geom_line()+
-  theme_classic()
+  theme_classic() + 
+  labs(y=NULL)+
+  scale_color_manual(
+    values = c(
+      "orange1",
+      "darkgreen"))
 

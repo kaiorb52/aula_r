@@ -13,10 +13,10 @@ isp <- read_csv2("0. Docs/BaseDPEvolucaoMensalCisp.csv", locale = locale(encodin
 pop <- read_csv2("0. Docs/PopulacaoEvolucaoMensalCisp.csv",
                  locale = locale(encoding = "windows-1252"))
 
-View(isp)
-View(pop)
-glimpse(isp)
-glimpse(pop)
+# View(isp)
+# View(pop)
+# glimpse(isp)
+# glimpse(pop)
 
 #metodo a
 isp2 <- left_join(isp, pop,
