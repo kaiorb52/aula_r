@@ -1,4 +1,11 @@
 
+pacman::p_load(
+  tidyverse,
+  data.table,
+  here, 
+  janitor
+)
+
 isp <- read_csv2("0. Docs/BaseDPEvolucaoMensalCisp.csv", locale = locale(encoding = "windows-1252"))
 
 #nomes das delegacias
@@ -60,6 +67,8 @@ taxa_longer <- todos_crimes_fun %>%
     values_to = "N"   
   )
 
+#saveRDS(taxa_longer, "taxa_longer.rds")
+
 taxa_wider <- taxa_longer %>%
   pivot_wider(
     names_from = "Crimes", 
@@ -70,12 +79,13 @@ taxa_longer %>%
   #filter(str_detect(Crimes, "taxa")) %>%
   filter(Crimes %in% c("taxa_hom_doloso", "taxa_hom_por_interv_policial")) %>%
   ggplot(aes(x=ano, y=N, color=Crimes)) +
-  geom_point()+
-  geom_line()+
+  geom_point(size=3.2)+
+  geom_line(size=1.5)+
   theme_classic() + 
   labs(y=NULL)+
   scale_color_manual(
     values = c(
       "orange1",
       "darkgreen"))
+
 
