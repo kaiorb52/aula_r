@@ -67,7 +67,7 @@ crimes <- isp_dp_nomes |>
     sum_ltd_violenta = sum(letalidade_violenta, na.rm = TRUE),
     sum_autos_resis = sum(hom_por_interv_policial, na.rm = TRUE),
     sum_hom_doloso = sum(hom_doloso, na.rm = TRUE),
-    sum_hom_interv_pm = sum(hom_por_interv_policial)
+    sum_hom_interv_pm = sum(hom_por_interv_policial, na.rm = TRUE)
   )
 
 crimes_pop_ano <- left_join(crimes, pop_ano) |>
