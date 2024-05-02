@@ -204,8 +204,10 @@ isp3 %>%
 
 paste0("Kaio", "10")
 
-isp3$mes_e_ano <- paste0(isp3$mes, ".", isp3$ano)
-isp3$mes_e_ano
+isp3$mes_e_ano <- paste0("01", "-", isp3$mes, "-", isp3$ano)
+isp3$mes_e_ano #ludridate, dmy()
+
+
 
 isp3 %>% #Revisar dps
   group_by(mes_e_ano, munic) %>%
@@ -213,7 +215,6 @@ isp3 %>% #Revisar dps
   #mutate(mes_e_ano=as.numeric(mes_e_ano)) %>%
   #arrange(-sum_hom_doloso) %>%
   filter(munic %in% c("Rio de Janeiro", "Macaé", "Campos dos Goytacazes")) %>%
-  #View()
   ggplot(aes(x=mes_e_ano, y=sum_hom_doloso, color=munic)) +
     #facet_wrap(munic~., scales = "free") +
     geom_point(size=3.0)+
