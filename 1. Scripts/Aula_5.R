@@ -143,4 +143,4 @@ taxas_todos_2 <- taxas_todos %>%
     .names="taxa_{col}")
   )
 
-
+saveRDS(taxas_todos_2, "taxas_todos_2.rds")

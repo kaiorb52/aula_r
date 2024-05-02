@@ -37,7 +37,6 @@ ggplot(data=taxa_hom_doloso, aes(y=N, x=ano)) +
 
 #Grafico 2 --------
 
-tax
 a_hom_doloso <- taxa_longer %>%
   filter(Crimes == "taxa_hom_por_interv_policial") 
 
@@ -156,12 +155,16 @@ select_crimes <- function(df, pop_df, group , a, b){
 todos_crimes_fun <- 
   select_crimes(df = isp_nomes, pop_df = pop_ano, ano, hom_doloso, registro_ocorrencias)
 
+saveRDS(todos_crimes_fun, "todos_crimes_fun.rds")
+
 taxa_longer <- todos_crimes_fun %>%
   pivot_longer(
     cols = hom_doloso:taxa_registro_ocorrencias, 
     names_to = "Crimes", 
     values_to = "N"   
   )
+
+saveRDS(taxa_longer, "taxa_longer_reg.rds")
 
 taxa_longer %>%
   filter(ano == 2018 & Crimes == "taxa_letalidade_violenta") %>%
